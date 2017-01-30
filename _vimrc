@@ -2,7 +2,7 @@
 syntax enable
 set background=dark
 "colorscheme solarized
-colorscheme elflord
+colorscheme monokai
 
 " Highlight search results
 set hlsearch
@@ -25,7 +25,7 @@ set tm=500
 set expandtab
 
 " Be smart when using tabs ;)
-set smarttab
+"set smarttab
 
 " 1 tab == 2 spaces
 set shiftwidth=2
