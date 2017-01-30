@@ -1,7 +1,8 @@
 " Enable syntax highlighting
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+colorscheme elflord
 
 " Highlight search results
 set hlsearch

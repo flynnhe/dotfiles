@@ -4,6 +4,8 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+install_solarized=false
+
 # copy local bash settings to home directory
 [ -e ~/.local.bash ] && mv ~/.local.bash ~/.local.bash.bak;
 cp _local.bash ~/.local.bash
@@ -29,14 +31,22 @@ if [ -e ~/.profile ]; then
 fi
 
 # install vim solarized theme
-DIR=`pwd`
-cd ~/.vim/bundle
-if [ ! -d vim-colors-solarized ]; then
-	git clone git://github.com/altercation/vim-colors-solarized.git
-	cd vim-colors-solarized/colors;
-	cp solarized.vim ~/.vim/colors;
-fi
-cd $DIR
-cp _vimrc ~/.vimrc
+if [ $install_solarized ];
+then
+  DIR=`pwd`
+  if [ ! -d "~/.vim" ]; then
+    mkdir -p ~/.vim/colors;
+    mkdir -p ~/.vim/bundle;
+  fi
 
-echo "Make sure to update your terminal colorscheme aswell!"
+  cd ~/.vim/bundle
+  if [ ! -d vim-colors-solarized ]; then
+    git clone git://github.com/altercation/vim-colors-solarized.git
+    cd vim-colors-solarized/colors;
+    cp solarized.vim ~/.vim/colors;
+  fi
+  cd $DIR
+  cp _vimrc ~/.vimrc
+
+  echo "Make sure to update your terminal colorscheme aswell!"
+fi
