@@ -1,8 +1,6 @@
 " Enable syntax highlighting
 syntax enable
 set background=dark
-"colorscheme solarized
-colorscheme monokai
 
 " Highlight search results
 set hlsearch
