@@ -30,14 +30,28 @@ if [ -e ~/.profile ]; then
   fi
 fi
 
+DIR=`pwd`
+if [ ! -d "~/.vim" ]; then
+	mkdir -p ~/.vim/colors;
+fi
+
+# install monokai terminal
+if [ ! -d "monokai.terminal" ]; then
+  git clone git://github.com/stephenway/monokai.terminal.git;
+fi
+cd monokai.terminal;
+open Monokai.terminal;
+
+# install monokai vim
+if [ ! -d "vim-monokai" ]; then
+  git clone https://github.com/sickill/vim-monokai.git;
+fi
+cd vim-monokai/colors;
+cp monokai.vim ~/.vim/colors
+
 # install vim solarized theme
 if [ $install_solarized_vim ];
 then
-  DIR=`pwd`
-  if [ ! -d "~/.vim" ]; then
-    mkdir -p ~/.vim/colors;
-  fi
-
   cd ~/.vim/colors
   if [ ! -d vim-colors-solarized ]; then
     git clone git://github.com/altercation/vim-colors-solarized.git
