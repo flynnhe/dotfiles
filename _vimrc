@@ -1,6 +1,10 @@
 " Enable syntax highlighting
 syntax enable
 set background=dark
+colorscheme monokai
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
 
 " Highlight search results
 set hlsearch

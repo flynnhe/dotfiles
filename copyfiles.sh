@@ -4,8 +4,6 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-install_solarized_vim=false
-
 # copy local bash settings to home directory
 [ -e ~/.local.bash ] && mv ~/.local.bash ~/.local.bash.bak;
 cp _local.bash ~/.local.bash
@@ -30,22 +28,29 @@ if [ -e ~/.profile ]; then
   fi
 fi
 
-# install vim solarized theme
-if [ $install_solarized_vim ];
-then
-  DIR=`pwd`
-  if [ ! -d "~/.vim" ]; then
-    mkdir -p ~/.vim/colors;
-  fi
+DIR=`pwd`;
 
-  cd ~/.vim/colors
-  if [ ! -d vim-colors-solarized ]; then
-    git clone git://github.com/altercation/vim-colors-solarized.git
-    cd vim-colors-solarized/colors;
-    cp solarized.vim ~/.vim/colors;
-  fi
-  cd $DIR
-  cp _vimrc ~/.vimrc
+# install c++ advanced vim highlighting
+#git clone https://github.com/octol/vim-cpp-enhanced-highlight.git /tmp/vim-cpp-enhanced-highlight
+#mkdir -p ~/.vim/after/syntax/
+#mv /tmp/vim-cpp-enhanced-highlight/after/syntax/cpp.vim ~/.vim/after/syntax/cpp.vim
+#rm -rf /tmp/vim-cpp-enhanced-highlight
 
-  echo "Make sure to update your terminal colorscheme aswell!"
+# install monokai gnome theme
+if [ ! -d "gnome-terminal-colors-monokai" ]; then
+  git clone git://github.com/pricco/gnome-terminal-colors-monokai.git;
 fi
+cd gnome-terminal-colors-monokai;
+apt-get install dconf-cli;
+./install.sh;
+cd $DIR;
+
+# install monokai vim colorscheme
+if [ ! -d "vim-monokai" ]; then
+  git clone https://github.com/sickill/vim-monokai.git;
+fi
+cd vim-monokai/colors;
+cp monokai.vim ~/.vim/colors;
+cd $DIR;
+
+cp _vimrc ~/.vimrc
