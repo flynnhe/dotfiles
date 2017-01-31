@@ -11,6 +11,7 @@ set hlsearch
 
 " Show matching brackets when text indicator is over them
 set showmatch
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -27,7 +28,7 @@ set tm=500
 set expandtab
 
 " Be smart when using tabs ;)
-"set smarttab
+set smarttab
 
 " 1 tab == 2 spaces
 set shiftwidth=2
@@ -40,7 +41,7 @@ set listchars=tab:\ \ ,trail:.
 set lbr
 set tw=500
 
-set ai "Auto indent
+"set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
