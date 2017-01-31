@@ -39,4 +39,4 @@ if [ ! -d "Smyck-Color-Scheme" ]; then
 fi
 open Smyck-Color-Scheme/Smyck.terminal;
 cp Smyck-Color-Scheme/smyck.vim ~/.vim/colors;
-cp _vimrc-mac ~/.vimrc
+cp _vimrc ~/.vimrc

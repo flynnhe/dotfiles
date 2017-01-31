@@ -33,6 +33,7 @@ set smarttab
 " 1 tab == 2 spaces
 set shiftwidth=2
 set tabstop=2
+autocmd FileType py setlocal shiftwidth=4 tabstop=4
 
 set list
 set listchars=tab:\ \ ,trail:.
